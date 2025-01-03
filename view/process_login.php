@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = new User();
     $result = $user->login($username, $password); 
     if ($result === true) {
-        header('Location: ../view/register.php');  
+        header('Location: ../index.php');  
     } else {
         echo $result;  
     }
