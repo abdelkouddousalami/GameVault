@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="styles_Auth.css">
 </head>
 <body>
-    <div class="form-container">
+    
+    <div class="form-container login">
         <h2>Sign In</h2>
         <form action="../view/process_login.php" method="POST" id="login-form">
             <label for="username">Username</label>

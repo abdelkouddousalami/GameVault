@@ -9,17 +9,23 @@ body {
   background-color: #e0e6f6;
   margin: 0;
   padding: 0;
+  background-image: url(../media/game-console-6603120_1280.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .form-container {
-  background: url(../media/game-console-6603120_1280.jpg);
-
-  width: 300px;
+  height: 60vh;
+  width: 40%;
+  min-width: 300px;
   margin: 50px auto;
   background-color: #fff;
-  padding: 20px;
+  padding: 24px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.login {
+  height: 40vh;
 }
 
 h2 {
