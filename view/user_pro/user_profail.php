@@ -17,8 +17,9 @@
 
 <li><a href="#">Home</a></li>
 <li><a href="edit_profail.php">Edit Profail</a></li>
-<li><a href="#">Favories</a></li>
-<li><a href="#">Setting</a></li>
+<li><a href="update_pwd.php">Update Password</a></li>
+
+<li><a href="libery.php">Favories</a></li>
 <li><a href="#">Signout</a></li></ul>
 
 </div>
@@ -27,10 +28,7 @@
 
 
 </div>
-<div class="show_section">
-    <div class="personal_info"></div>
-    <div class="games_info"></div>
-</div>
+
    </div> 
 </body>
 </html>
