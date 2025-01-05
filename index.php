@@ -19,7 +19,7 @@
             <li><a href="#contact">Games</a></li>
             <li><a href="#games">Contact Us</a></li>
         </ul>
-        <div class="login-btn"><a href="#login">Login</a></div>
+        <div class="login-btn"><a href="view/login.php">Login</a></div>
     </nav>
 
     <main>

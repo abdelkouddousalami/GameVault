@@ -16,8 +16,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #1e3262;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #c8624d;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
   }
   .navbar img{
     width: 150px;
@@ -48,11 +48,11 @@
   }
   
   .navbar .nav-links li a:hover {
-    color: #b34c37;
+    color: #1e3262;
   }
   
   .navbar .login-btn a {
-    background-color: #d77e9f;
+    background-color: #9cb1e1;
     color: #1e3262;
     padding: 0.5rem 1.2rem;
     border-radius: 5px;
@@ -62,7 +62,7 @@
   }
   
   .navbar .login-btn a:hover {
-    background-color: #b34c37;
+    background-color: #1e3262;
     color: #f0f3fa;
   }
   
