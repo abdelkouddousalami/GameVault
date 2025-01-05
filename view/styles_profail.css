@@ -12,8 +12,11 @@ body {
   min-height: 100vh;
 }
 .all {
+  margin: 36px auto;
+
   width: 95%;
   min-height: 100%;
+  display: flex;
 }
 .nav_section {
   display: flex;
@@ -64,13 +67,4 @@ body {
   width: 60%;
   height: 100%;
   border-radius: 50%;
-}
-
-.show_section {
-}
-
-.personal_info {
-}
-
-.games_info {
 }
