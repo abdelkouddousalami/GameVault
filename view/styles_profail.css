@@ -1,0 +1,76 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #e0e6f6;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+.all {
+  width: 95%;
+  min-height: 100%;
+}
+.nav_section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #9cb1e1;
+  width: 20%;
+  padding: 24px;
+  height: 80vh;
+  justify-content: flex-start;
+}
+
+.nav_section ul {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 40vh;
+  justify-content: space-evenly;
+}
+.nav_section ul li {
+  list-style: none;
+}
+
+.nav_section ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.nav_section ul li a:hover {
+  color: #b34c37;
+}
+.img_div {
+  width: 100%;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 25%;
+  margin-bottom: 24px;
+
+  gap: 8px;
+}
+
+.img_div img {
+  width: 60%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.show_section {
+}
+
+.personal_info {
+}
+
+.games_info {
+}
