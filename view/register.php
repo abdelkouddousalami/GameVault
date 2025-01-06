@@ -1,3 +1,24 @@
+<?php
+require_once './../classes/User.php';
+
+$user = new User();
+$error = [];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['pwd'];
+    $conf_pwd = $_POST['conf_pwd'];
+
+    if (!$user->register($username, $email, $password, $conf_pwd)) {
+        $error = $user->getErrors();
+    } else {
+        header('Location: register.php');
+        exit;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +30,14 @@
 <body>
     <div class="form-container">
         <h2>Register</h2>
-        <form action="../view/process_register.php" method="POST" id="register-form">
+        <?php if (!empty($error)): ?>
+            <div class="error-messages">
+                <?php foreach ($error as $er): ?>
+                    <p><?= htmlspecialchars($er) ?></p>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+        <form action="" method="POST" id="register-form">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
             
