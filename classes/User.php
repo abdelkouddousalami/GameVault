@@ -63,4 +63,81 @@ class User {
     public function getErrors() {
         return $this->error;
     }
+    public function editProfile($id, $fullname, $email, $img_url) {
+        if (empty($fullname) || empty($email)) {
+            $this->error[] = "Full name and email are required!";
+            return false;
+        }
+    
+        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE email = :email AND id != :id");
+        $stmt->execute([':email' => $email, ':id' => $id]);
+        if ($stmt->rowCount() > 0) {
+            $this->error[] = "Email is already taken!";
+            return false;
+        }
+    
+        $stmt = $this->pdo->prepare("UPDATE users SET username = :username, email = :email, profile_picture = :img_url WHERE id = :id");
+        try {
+            $stmt->execute([
+                ':username' => $fullname,
+                ':email' => $email,
+                ':img_url' => $img_url,
+                ':id' => $id
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            $this->error[] = "Error updating profile: " . $e->getMessage();
+            return false;
+        }
+    }
+    
+    public function getUserById($id) {
+        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE id = :id");
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    public function updatePassword($userId, $oldPassword, $newPassword, $confirmPassword) {
+        if ($newPassword !== $confirmPassword) {
+            $this->error['confirm_password'] = "New password and confirmation do not match!";
+
+            return false;
+        }
+    
+        $stmt = $this->pdo->prepare("SELECT password_hash FROM users WHERE id = :id");
+        $stmt->execute([':id' => $userId]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if (!$user) {
+            $this->error['user_not_found'] = "User not found!";
+            return false;
+        }
+    
+        if (!password_verify($oldPassword, $user['password_hash'])) {
+            $this->error['old_password'] = "Old password is incorrect!";
+            return false;
+        }
+    
+        $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
+    
+        $stmt = $this->pdo->prepare("UPDATE users SET password_hash = :password WHERE id = :id");
+        try {
+            $stmt->execute([
+                ':password' => $hashedPassword,
+                ':id' => $userId,
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            $this->error[] = "Error updating password: " . $e->getMessage();
+            return false;
+        }
+    }
+    
+    public function logout() {
+        session_unset();
+        session_destroy();
+        session_start();
+        session_regenerate_id(true);
+    }
+
 }
