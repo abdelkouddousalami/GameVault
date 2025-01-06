@@ -1,10 +1,9 @@
 <?php
-require_once './../classes/User.php';
+require_once '../classes/User.php'; 
 
-$user = new User();
 $error = [];
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user = new User();
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['pwd'];
@@ -13,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$user->register($username, $email, $password, $conf_pwd)) {
         $error = $user->getErrors();
     } else {
-        header('Location: register.php');
+        header('Location: login.php'); 
         exit;
     }
 }
@@ -37,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
-        <form action="" method="POST" id="register-form">
+        <form action="register.php" method="POST" id="register-form">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
             
