@@ -48,6 +48,7 @@ class User {
                 session_start();
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
+                header('location: ../index.php');
                 return true;
             } else {
                 $this->error[] = "Invalid password!";
