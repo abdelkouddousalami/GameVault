@@ -27,6 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="styles_Auth.css">
 </head>
 <body>
+<?php
+include 'header.php'; ?>
     <div class="form-container">
         <h2>Register</h2>
         <?php if (!empty($error)): ?>

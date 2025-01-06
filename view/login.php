@@ -22,6 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="styles_Auth.css">
 </head>
 <body>
+<?php
+include_once 'header.php'; ?>
     <div class="form-container login">
         <h2>Sign In</h2>
 
