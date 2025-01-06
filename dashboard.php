@@ -1,3 +1,12 @@
+<?php 
+include 'classes/db.php';
+$pdo = new Database();
+$connection = $pdo->connect();
+
+$query = $connection->query('SELECT username FROM Users');
+$view = $query->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +79,13 @@
                         <th>Email</th>
                     </tr>
                     <tr>
-                        <td>abdo</td>
+                        <td>
+                            <?php 
+                                foreach ($view as $row) {
+                                    echo $row['username'] . '<br>';
+                                }
+                            ?>
+                        </td>
                         <td>abdo@gmail.com</td>
                     </tr>
                 </table>
