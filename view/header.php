@@ -55,7 +55,7 @@
 
 <nav class="navbar">
         <div class="logo">
-            <a href="index.php"><img src="img/logo.png" alt=""></a>
+            <a href="index.php"><img src="../../img/logo.png" alt=""></a>
         </div>
         <ul class="nav-links">
             <li><a href="../GameVault/index.php">Home</a></li>
