@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('img/400w.gif') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.error-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #000000;
+    color: #fff;
+}

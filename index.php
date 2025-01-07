@@ -1,3 +1,12 @@
+<?php
+include 'classes/db.php';
+$pdo = new Database();
+$connection = $pdo->connect();
+
+$query = $connection->query('SELECT * FROM Games');
+$games = $query->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameVault</title>
-    <link rel="stylesheet" href="index.css?<?php echo time()?>">
+    <link rel="stylesheet" href="index.css?<?php echo time() ?>">
 </head>
 
 <body>
@@ -16,57 +25,40 @@
         <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
             <li><a href="library.php">Library</a></li>
-            <li><a href="#contact">Games</a></li>
-            <li><a href="#games">Contact Us</a></li>
+            <li><a href="#">Games</a></li>
+            <li><a href="contact.php">Contact Us</a></li>
         </ul>
         <div class="login-btn"><a href="view/login.php">Login</a></div>
     </nav>
 
     <main>
+
         <section class="welcome">
+            <video autoplay muted loop id="bg-video">
+                <source src="img/7046607-uhd_3840_2160_25fps.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <h1>Welcome to GameVault</h1>
             <p>Discover, organize, and enjoy your video game collection.</p>
         </section>
         <section class="games">
-            <div class="game-card">
-                <div class="game-image">
-                    <img src="img/pexels-kowalievska-1174746.jpg" alt="Game Title">
-                </div>
-                <div class="game-info">
-                    <h3 class="game-title">Game Title</h3>
-                    <p class="game-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi optio rem tempora numquam mollitia doloribus placeat dignissimos labore, aut eum.</p>
-                    <div class="game-actions">
-                        <button class="btn-primary">Add To Favorit</button>
-                        <button class="btn-secondary">Details</button>
+            <?php foreach ($games as $game): ?>
+                <div class="game-card">
+                    <div class="game-image">
+                        <?php if (!empty($game['image_url'])): ?>
+                            <img src="<?php echo htmlspecialchars($game['image_url']); ?>" alt="Game Image">
+                        <?php endif; ?>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title"><?php echo htmlspecialchars($game['title']); ?></h3>
+                        <p class="game-description"><?php echo htmlspecialchars($game['description']); ?></p>
+                        <div class="game-actions">
+                            <a href="error.php"><button class="btn-primary">Add To Favorit</button></a>
+                            <button class="btn-secondary">Details</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="game-card">
-                <div class="game-image">
-                    <img src="img/pexels-pixabay-260024.jpg" alt="Game Title">
-                </div>
-                <div class="game-info">
-                    <h3 class="game-title">Game Title</h3>
-                    <p class="game-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi optio rem tempora numquam mollitia doloribus placeat dignissimos labore, aut eum.</p>
-                    <div class="game-actions">
-                        <button class="btn-primary">Add To Favorit</button>
-                        <button class="btn-secondary">Details</button>
-                    </div>
-                </div>
-            </div>
-            <div class="game-card">
-                <div class="game-image">
-                    <img src="img/pexels-pixabay-54101.jpg" alt="Game Title">
-                </div>
-                <div class="game-info">
-                    <h3 class="game-title">Game Title</h3>
-                    <p class="game-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi optio rem tempora numquam mollitia doloribus placeat dignissimos labore, aut eum.</p>
-                    <div class="game-actions">
-                        <button class="btn-primary">Add To Favorit</button>
-                        <button class="btn-secondary">Details</button>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </section>
         <div>
             <button class="btn-primary see">See More</button>

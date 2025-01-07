@@ -1,10 +1,12 @@
-<?php 
+<?php
 include 'classes/db.php';
 $pdo = new Database();
 $connection = $pdo->connect();
 
 $query = $connection->query('SELECT username FROM Users');
 $view = $query->fetchAll(PDO::FETCH_ASSOC);
+$querry = $connection->query('SELECT email FROM Users');
+$emails = $querry->fetchAll((PDO::FETCH_ASSOC));
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +22,7 @@ $view = $query->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <video autoplay muted loop id="bg-video">
         <source src="img/3209828-uhd_3840_2160_25fps.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        Your browser does not support the video tag
     </video>
     <nav class="navbar">
         <div class="logo">
@@ -49,26 +51,30 @@ $view = $query->fetchAll(PDO::FETCH_ASSOC);
         <div class="content">
             <div id="add-game" class="section">
                 <h2>Add Games</h2>
-                <form>
+                <form method="POST" action="crud.php" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="game-name">Game Name</label>
-                        <input type="text" id="game-name" name="game-name">
+                        <input type="text" id="game-name" name="game-name" required>
                     </div>
                     <div class="form-group">
                         <label for="game-genre">Genre</label>
-                        <input type="text" id="game-genre" name="game-genre">
+                        <input type="text" id="game-genre" name="game-genre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="game-description">Description</label>
+                        <textarea id="game-description" name="game-description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="game-release-date">Release Date</label>
+                        <input type="date" id="game-release-date" name="game-release-date" required>
                     </div>
                     <div class="form-group">
                         <label for="game-photo">Photo</label>
-                        <input type="file" id="game-photo" name="game-photo" class="file-input">
+                        <input type="text" id="game-photo" name="game-photo-url" class="file-input" required>
                     </div>
-                    <div class="form-group">
-                        <label for="game-screenshot">Screenshots</label>
-                        <input type="file" id="game-screenshot" name="game-screenshot" class="file-input">
-                    </div>
-
                     <button type="submit" class="btn">Add Game</button>
                 </form>
+
             </div>
 
             <div id="users" class="section">
@@ -80,13 +86,19 @@ $view = $query->fetchAll(PDO::FETCH_ASSOC);
                     </tr>
                     <tr>
                         <td>
-                            <?php 
-                                foreach ($view as $row) {
-                                    echo $row['username'] . '<br>';
-                                }
+                            <?php
+                            foreach ($view as $row) {
+                                echo $row['username'] . '<br>' . '<br>';
+                            }
                             ?>
                         </td>
-                        <td>abdo@gmail.com</td>
+                        <td>
+                            <?php
+                            foreach ($emails as $row) {
+                                echo $row['email'] . '<br>' . '<br>';
+                            }
+                            ?>
+                        </td>
                     </tr>
                 </table>
             </div>
