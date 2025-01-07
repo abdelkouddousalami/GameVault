@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a href="index.php"><img src="img/logo.png" alt=""></a>
+            <a href="index.php"><img src="img/logo.png" alt="not"></a>
         </div>
         <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
@@ -19,7 +19,7 @@
             <li><a href="#contact">Games</a></li>
             <li><a href="#games">Contact Us</a></li>
         </ul>
-        <div class="login-btn"><a href="#login">Login</a></div>
+        <div class="login-btn"><a href="view/login.php">Login</a></div>
     </nav>
 
     <main>

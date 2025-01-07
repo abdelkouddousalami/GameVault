@@ -26,7 +26,7 @@ body {
   align-items: center;
   flex-direction: column;
   background-color: #9cb1e1;
-  width: 30%;
+  width: 20%;
   padding: 12px;
 
   height: 80vh;
@@ -95,6 +95,7 @@ body {
   height: 40vh;
   margin-bottom: 16px;
   border-radius: 8px;
+  gap: 36px;
 }
 .stt {
   display: flex;
