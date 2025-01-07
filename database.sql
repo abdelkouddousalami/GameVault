@@ -71,3 +71,4 @@ CREATE TABLE Bans (
     reason TEXT,
     banned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+cd ..
