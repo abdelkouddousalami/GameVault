@@ -48,7 +48,7 @@ class User {
                 session_start();
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
-                header('location: ../index.php');
+                header('location: user_pro/user_profail.php');
                 return true;
             } else {
                 $this->error[] = "Invalid password!";
@@ -138,6 +138,40 @@ class User {
         session_destroy();
         session_start();
         session_regenerate_id(true);
+    }
+
+    public function banUser($id) {
+        $stmt = $this->pdo->prepare("UPDATE users SET banned = 1 WHERE id = :id");
+        try {
+            $stmt->execute([':id' => $id]);
+            return true;
+        } catch (PDOException $e) {
+            $this->error[] = "Error banning user: " . $e->getMessage();
+            return false;
+        }
+    }
+    
+    public function unbanUser($id) {
+        $stmt = $this->pdo->prepare("UPDATE users SET banned = 0 WHERE id = :id");
+        try {
+            $stmt->execute([':id' => $id]);
+            return true;
+        } catch (PDOException $e) {
+            $this->error[] = "Error unbanning user: " . $e->getMessage();
+            return false;
+        }
+    }
+    
+
+    public function fetchAllUsers() {
+        $stmt = $this->pdo->prepare("SELECT id, username, email, banned FROM users");
+        try {
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            $this->error[] = "Error fetching users: " . $e->getMessage();
+            return [];
+        }
     }
 
 }

@@ -10,7 +10,14 @@ if (!isset($_SESSION['user_id'])) {
 $userId = $_SESSION['user_id']; 
 $user = new User();
 $currentUser = $user->getUserById($userId);
+
+if (isset($_POST['sub'])) {
+    $user->logout();
+    header('Location: ../login.php'); 
+    exit;
+}
 ?>
+
 
 
 <!DOCTYPE html>
@@ -37,7 +44,15 @@ include '../header.php'; ?>
                    <li><a href="edit_profail.php">Edit Profile</a></li>
                    <li><a href="update_pwd.php">Update Password</a></li>
                    <li><a href="../../library.php">Favorites</a></li>
-                   <li><a href="logout.php">Signout</a></li>
+                   <li>
+    <form action="user_profail.php" method="post" style="display: inline;">
+        <input type="hidden" name="user_id" value="$_SESSION['user_id']?>">
+        <button type="submit" name="sub" style="border: none; background: none; color: #007bff; cursor: pointer; font-size: 18px">Signout</button>
+    </form>
+</li>
+
+
+                  
                </ul>
            </div>
        </div>
@@ -48,7 +63,7 @@ include '../header.php'; ?>
                <h4><?= htmlspecialchars($currentUser['username'] ?? 'Unknown User') ?></h4>
            </div>
 <div class="stt">
-<P class="join">Join at <span class="ss">2024/07/31</span></P>
+<p class="join">Join at <span class="ss"><?= htmlspecialchars($currentUser['created_at'] ?? 'Unknown') ?></span></p>
 <P class="join">Total Games <span class="ss">10</span></P>
 <P class="join">PLayed Time:<span class="ss">35h:25min</span></P>
 
