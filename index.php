@@ -20,7 +20,7 @@ $games = $query->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a href="index.php"><img src="img/logo.png" alt=""></a>
+            <a href="index.php"><img src="img/logo.png" alt="not"></a>
         </div>
         <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
