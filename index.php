@@ -35,7 +35,7 @@ $games = $query->fetchAll(PDO::FETCH_ASSOC);
 
         <section class="welcome">
             <video autoplay muted loop id="bg-video">
-                <source src="img/7046607-uhd_3840_2160_25fps.mp4" type="video/mp4">
+                <source src="img/3209828-uhd_3840_2160_25fps.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <h1>Welcome to GameVault</h1>

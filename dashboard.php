@@ -117,13 +117,14 @@ $emails = $querry->fetchAll((PDO::FETCH_ASSOC));
 
             <div id="ban-user" class="section">
                 <h2>Ban User</h2>
-                <form>
+                <form method="POST" action="ban.php">
                     <div class="form-group">
                         <label for="ban-username">Username</label>
-                        <input type="text" id="ban-username" name="ban-username">
+                        <input type="text" id="ban-username" name="ban-username" required>
                     </div>
                     <button type="submit" class="btn">Ban User</button>
                 </form>
+
             </div>
         </div>
     </main>
