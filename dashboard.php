@@ -1,11 +1,42 @@
 <?php
 include 'classes/db.php';
 include 'classes/User.php';
-include 'ban.php';
 
 $pdo = new Database();
 $connection = $pdo->connect();
 $user = new User();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['ban-username'])) {
+        $usernameToBan = $_POST['ban-username'];
+        $stmt = $connection->prepare("SELECT id FROM users WHERE username = :username");
+        $stmt->execute([':username' => $usernameToBan]);
+        $userToBan = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($userToBan) {
+            $user->banUser($userToBan['id']);
+        } else {
+            $errorMessage = "User not found!";
+        }
+    }
+
+    if (isset($_POST['unban-username'])) {
+        $usernameToUnban = $_POST['unban-username'];
+        $stmt = $connection->prepare("SELECT id FROM users WHERE username = :username");
+        $stmt->execute([':username' => $usernameToUnban]);
+        $userToUnban = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($userToUnban) {
+            $user->unbanUser($userToUnban['id']);
+        } else {
+            $errorMessage = "User not found!";
+        }
+    }
+}
+
+$query = $connection->query('SELECT id, username, email, banned FROM users');
+$users = $query->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +78,32 @@ $user = new User();
             </ul>
         </div>
 
+
         <div class="content">
+            <div id="add-game" class="section">
+                <h2>Add Games</h2>
+                    <form method="POST" action="crud.php" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="game-name">Game Name</label>
+                            <input type="text" id="game-name" name="game-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="game-genre">Genre</label>
+                            <input type="text" id="game-genre" name="game-genre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="game-photo">Photo</label>
+                            <input type="test" id="game-photo" name="game-photo-url" class="file-input">
+                            <label for="game-description">Description</label>
+                            <textarea id="game-description" name="game-description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="game-release-date">Release Date</label>
+                            <input type="date" id="game-release-date" name="game-release-date" required>
+                        </div>
+                        <button type="submit" class="btn">Add Game</button>
+                    </form>
+            </div>
             <div id="users" class="section">
                 <h2>View Users</h2>
                 <table>
