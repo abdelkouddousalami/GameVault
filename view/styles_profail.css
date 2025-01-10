@@ -19,59 +19,150 @@ body {
   min-height: 100%;
   display: flex;
 }
-.nav_section {
-  border-radius: 8px;
-
+.nav_profail {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  background-color: #9cb1e1;
-  width: 20%;
-  padding: 12px;
-
-  height: 80vh;
-  justify-content: flex-start;
-}
-
-.nav_section ul {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  height: 40vh;
-  justify-content: space-evenly;
-}
-.nav_section ul li {
+  align-items: flex-start;
+  padding: 15px 15px 15px 15px;
+  background-color: #011021;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   list-style: none;
+  margin: 0;
+  line-height: 50px;
+  width: 250px;
+  height: 60vh;
+  overflow-y: auto;
 }
 
-.nav_section ul li a {
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
-  font-weight: 600;
-  transition: color 0.3s ease;
+.nav_profail li {
+  margin: 10px 0;
 }
-.nav_section ul li a:hover {
-  color: #b34c37;
+
+.nav_profail li a,
+.nav_profail li form button {
+  position: relative;
+  text-decoration: none;
+  color: #e6f3fe;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: color 0.5s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding-left: 15px;
+}
+
+.nav_profail li a::before,
+.nav_profail li form button::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 15px;
+  width: 0;
+  height: 2px;
+  background-color: #fa3690;
+  transition: width 0.5s ease;
+}
+
+.nav_profail li a:hover,
+.nav_profail li form button:hover {
+  color: #9d04a3;
+}
+
+.nav_profail li a:hover::before,
+.nav_profail li form button:hover::before {
+  width: calc(100% - 15px);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+  background-color: #011021;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+}
+
+.navbar img {
+  width: 150px;
+  height: 50px;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+.navbar .logo a {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e6f3fe;
+  text-decoration: none;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar .nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: #e6f3fe;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: color 0.5s ease;
+}
+
+.navbar .nav-links li a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fa3690;
+  transition: width 0.5s ease;
+}
+
+.navbar .nav-links li a:hover {
+  color: #9d04a3;
+}
+
+.navbar .nav-links li a:hover::before {
+  width: 100%;
+}
+
+.navbar .login-btn a {
+  background-color: #fa3690; 
+  color: #e6f3fe;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar .login-btn a:hover {
+  background-color: #9d04a3;
+  color: #e6f3fe;
 }
 .img_div {
-  width: 30%;
-  object-fit: cover;
+  width: 35%;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 25%;
   margin-bottom: 24px;
-
   gap: 8px;
 }
 
 .img_div img {
-  max-width: 100%;
-  height: auto;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  object-fit: cover;
 }
+
 .content_section {
   padding: 14px;
   border-radius: 8px;
@@ -118,6 +209,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100%;
 }
 .game-card {
   background-color: #ffffff;
@@ -162,4 +254,54 @@ body {
 }
 .h22 {
   margin-bottom: 16px;
+}
+.game-card button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #e6f3fe;
+  background-color: #fa3690;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.game-card button::before,
+.game-card button::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background-color: #ca99cb;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.game-card button::before {
+  top: 0;
+  left: 0;
+}
+
+.game-card button::after {
+  bottom: 0;
+  right: 0;
+}
+
+.game-card button:hover {
+  color: #011021;
+  background-color: #e6f3fe;
+}
+
+.game-card button:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+.game-card button:hover::after {
+  width: 100%;
+  right: 0;
 }

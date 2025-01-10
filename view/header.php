@@ -58,7 +58,7 @@
             <a href="index.php"><img src="../../img/logo.png" alt=""></a>
         </div>
         <ul class="nav-links">
-            <li><a href="../GameVault/index.php">Home</a></li>
+            <li><a href="../index.php">Home</a></li>
             <li><a href="../../library.php">Library</a></li>
             <li><a href="#contact">Games</a></li>
             <li><a href="#games">Contact Us</a></li>

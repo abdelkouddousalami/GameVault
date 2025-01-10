@@ -90,7 +90,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #e6f3fe; /* Text color */
+  color: #e6f3fe;
   overflow: hidden;
 }
 
@@ -121,7 +121,7 @@ body {
 .welcome h1 {
   z-index: 1;
   font-size: 2rem;
-  color: #e6f3fe; /* Heading text color */
+  color: #e6f3fe;
 }
 
 .games {
@@ -133,8 +133,8 @@ body {
 }
 
 .game-card {
-  background-color: #011021; /* Card background color */
-  border: 1px solid #444; /* Card border */
+  background-color: #011021;
+  border: 1px solid #444;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
@@ -150,7 +150,7 @@ body {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-bottom: 1px solid #444; /* Image border */
+  border-bottom: 1px solid #444;
 }
 
 .game-info {
@@ -160,13 +160,13 @@ body {
 
 .game-title {
   font-size: 1.5rem;
-  color: #e6f3fe; /* Game title color */
+  color: #e6f3fe;
   margin-bottom: 0.8rem;
 }
 
 .game-description {
   font-size: 0.95rem;
-  color: #9d04a3; /* Game description color */
+  color: #9d04a3;
   margin-bottom: 1rem;
 }
 
@@ -186,8 +186,8 @@ body {
 }
 
 .btn-primary {
-  background-color: #fa3690; /* Primary button background color */
-  color: #e6f3fe; /* Button text color */
+  background-color: #fa3690;
+  color: #e6f3fe;
 }
 
 .btn-primary:hover {

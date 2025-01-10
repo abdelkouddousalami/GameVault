@@ -1,11 +1,21 @@
 <?php
+session_start();
 include 'classes/db.php';
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: view/login.php');
+    exit;
+}
+
+$userId = $_SESSION['user_id'];
 $pdo = new Database();
 $connection = $pdo->connect();
 
-$query = $connection->query('SELECT * FROM Games');
-$games = $query->fetchAll(PDO::FETCH_ASSOC);
+$stmt = $connection->prepare('SELECT g.* FROM Games g INNER JOIN UserGames ug ON g.id = ug.game_id WHERE ug.user_id = :user_id AND ug.is_favorite = 1');
+$stmt->execute(['user_id' => $userId]);
+$games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

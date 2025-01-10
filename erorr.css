@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('img/400w.gif') no-repeat center center fixed;
+    background: url('img/400.gif') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
     text-align: center;

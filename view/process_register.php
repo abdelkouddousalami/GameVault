@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $user = new User();  
-    $result = $user->register($username, $email, $password);  // Call the register method
+    $result = $user->register($username, $email, $password,$confirm_password);  // Call the register method
 
     if ($result === true) {
         echo "User registered successfully!";

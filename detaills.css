@@ -1,0 +1,352 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #011021;
+    color: #e6f3fe;
+    line-height: 1.6;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+    background-color: #011021;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+}
+
+.navbar img {
+    width: 150px;
+    height: 50px;
+    object-fit: cover;
+    margin-top: 10px;
+}
+
+.navbar .logo a {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e6f3fe;
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar .nav-links li a {
+    position: relative;
+    text-decoration: none;
+    color: #e6f3fe;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.5s ease;
+}
+
+.navbar .nav-links li a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fa3690;
+    transition: width 0.5s ease;
+}
+
+.navbar .nav-links li a:hover {
+    color: #9d04a3;
+}
+
+.navbar .nav-links li a:hover::before {
+    width: 100%;
+}
+
+.navbar .login-btn a {
+    background-color: #fa3690;
+    color: #e6f3fe;
+    padding: 0.5rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar .login-btn a:hover {
+    background-color: #9d04a3;
+    color: #e6f3fe;
+}
+
+main {
+    padding: 3rem 1rem;
+    background-color: #011021;
+    color: #e6f3fe;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+}
+
+.game-details {
+    flex: 0 0 65%;
+    background-color: #1a2733;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.game-details:hover::before {
+    opacity: 1;
+}
+
+.game-details h1 {
+    z-index: 2;
+    font-size: 2rem;
+    color: #fa3690;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.game-detail-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.game-detail-image img:hover {
+    transform: scale(1.05);
+}
+
+.game-details p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #e6f3fe;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.game-details p strong {
+    color: #fa3690;
+}
+
+.game-details:hover h1 {
+    color: #9d04a3;
+}
+
+.game-details:hover p {
+    color: #9d04a3;
+}
+
+.comments {
+    flex: 0 0 30%;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: #1a2733;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.inp{
+    display: flex;
+    flex-direction: column;
+}
+
+.comments h2 {
+    font-size: 1.8rem;
+    color: #fa3690;
+    margin-bottom: 1rem;
+}
+
+.comments ul {
+    list-style: none;
+    padding: 0;
+}
+
+.comments .comment-item {
+    background-color: #011021;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.comments .comment-item strong {
+    color: #fa3690;
+}
+
+.comments .comment-item p {
+    margin: 0.5rem 0;
+}
+
+.comments .comment-item small {
+    color: #9d04a3;
+    font-size: 0.8rem;
+}
+
+.footer {
+    background-color: #011021;
+    color: #e6f3fe;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e6f3fe;
+    text-decoration: none;
+}
+
+.footer-links a {
+    color: #e6f3fe;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.footer-links a:hover {
+    color: #fa3690;
+}
+
+.footer p {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #9d04a3;
+}
+
+.see {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.logo img {
+    width: 150px;
+    height: 50px;
+    object-fit: cover;
+    margin-top: 10px;
+}
+
+.styled-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #1a2733;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e6f3fe;
+    margin-bottom: 0.5rem;
+}
+
+input,
+textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: #011021;
+    color: #e6f3fe;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #fa3690;
+    box-shadow: 0 0 10px rgba(250, 54, 144, 0.5);
+}
+
+input:focus+label:before,
+textarea:focus+label:before {
+    content: '→';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fa3690;
+    font-size: 1.5rem;
+}
+
+input:hover,
+textarea:hover {
+    border-color: #a8a8a8;
+}
+
+button {
+    background-color: #fa3690;
+    color: #e6f3fe;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: #9d04a3;
+    color: #e6f3fe;
+}
+
+button:active {
+    background-color: #fa3690;
+    box-shadow: 0 0 5px #9d04a3;
+}
+
+input:before,
+textarea:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 2px;
+    background-color: #fa3690;
+    transition: width 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+}
+
+input:focus:before,
+textarea:focus:before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}

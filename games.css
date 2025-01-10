@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #011021;
+    color: #e6f3fe;
+    line-height: 1.6;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+    background-color: #011021;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+  }
+  
+  .navbar img {
+    width: 150px;
+    height: 50px;
+    object-fit: cover;
+    margin-top: 10px;
+  }
+  
+  .navbar .logo a {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e6f3fe;
+    text-decoration: none;
+  }
+  
+  .navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .navbar .nav-links li a {
+    position: relative;
+    text-decoration: none;
+    color: #e6f3fe;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.5s ease;
+  }
+  
+  .navbar .nav-links li a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fa3690;
+    transition: width 0.5s ease;
+  }
+  
+  .navbar .nav-links li a:hover {
+    color: #9d04a3;
+  }
+  
+  .navbar .nav-links li a:hover::before {
+    width: 100%;
+  }
+  
+  .navbar .login-btn a {
+    background-color: #fa3690; 
+    color: #e6f3fe;
+    padding: 0.5rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .navbar .login-btn a:hover {
+    background-color: #9d04a3;
+    color: #e6f3fe;
+  }
+  
+  .welcome {
+    height: 40vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #e6f3fe;
+    overflow: hidden;
+  }
+  
+
+  
+  .welcome h1 {
+    z-index: 1;
+    font-size: 2.5rem;
+    color: #e6f3fe;/
+  }
+  .welcome p{
+    z-index: 1;
+    font-size: 1.3rem;
+    color: #e6f3fe;/
+  }
+.welcome {
+    text-align: center;
+    padding: 50px;
+    background-color: #011021;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #9d04a3, #fa3690, #9d04a3); /* Gradient colors */
+    transition: left 0.5s ease;
+    z-index: 0;
+}
+
+.welcome:hover::before {
+    left: 0;
+}
+
+.welcome::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 5px;
+    background: #fa3690;
+    transition: right 0.5s ease;
+    z-index: 0;
+}
+
+.welcome:hover::after {
+    right: 0;
+}
+
+.welcome h1, .welcome p {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.welcome h1:hover, .welcome p:hover {
+    color: #011021;
+    transition: color 0.3s ease;
+}
+
+  
+  .games {
+    width: 90%;
+    margin: 3rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .game-card {
+    background-color: #011021; /* Card background color */
+    border: 1px solid #444; /* Card border */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .game-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #444; /* Image border */
+  }
+  
+  .game-info {
+    padding: 1.2rem;
+    text-align: center;
+  }
+  
+  .game-title {
+    font-size: 1.5rem;
+    color: #e6f3fe; /* Game title color */
+    margin-bottom: 0.8rem;
+  }
+  
+  .game-description {
+    font-size: 0.95rem;
+    color: #9d04a3; /* Game description color */
+    margin-bottom: 1rem;
+  }
+  
+  .game-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .btn-primary, .btn-secondary {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #fa3690; /* Primary button background color */
+    color: #e6f3fe; /* Button text color */
+  }
+  
+  .btn-primary:hover {
+    background-color: #9d04a3;
+  }
+  
+  .btn-secondary {
+    background-color: #9d04a3;
+    color: #e6f3fe;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #fa3690;
+    color: #e6f3fe;
+  }
+  
+  .footer {
+    background-color: #011021;
+    color: #e6f3fe;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e6f3fe;
+    text-decoration: none;
+  }
+  
+  .footer-links a {
+    color: #e6f3fe;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  .footer-links a:hover {
+    color: #fa3690;
+  }
+  
+  .footer p {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #9d04a3; 
+  }
+  
+  .see {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .logo img {
+    width: 150px;
+    height: 50px;
+    object-fit: cover;
+    margin-top: 10px;
+  }
+  
